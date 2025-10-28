@@ -1,0 +1,27 @@
+{
+  "name": "hiddo",
+  "version": "1.0.0",
+  "description": "Hiddo - Find The Player Game",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build && node minify-build.js",
+    "preview": "vite preview"
+  },
+  "keywords": [
+    "game",
+    "html5",
+    "createjs",
+    "pwa"
+  ],
+  "author": "Hold My Pixel",
+  "license": "UNLICENSED",
+  "private": true,
+  "devDependencies": {
+    "terser": "^5.44.0",
+    "vite": "^5.4.10",
+    "vite-plugin-html": "^3.2.2",
+    "vite-plugin-pwa": "^0.20.5",
+    "vite-plugin-static-copy": "^3.1.4"
+  }
+}
