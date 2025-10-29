@@ -758,8 +758,8 @@ const textStrings = {
 const shareSettings = {
     'enable': true,
     'options': ["facebook", "twitter", "whatsapp", "telegram", "reddit", 'linkedin'],
-    'shareTitle': "Highscore on Hiddo is [SCORE]PTS",
-    'shareText': "[SCORE]PTS is mine new highscore on Hiddo! Try it now!",
+    'shareTitle': "Highscore on Hiddo is [SCORE] points",
+    'shareText': "[SCORE] points is mine new highscore on Hiddo! Try it now!",
     'customScore': true,
     'gtag': true
 };
@@ -2194,8 +2194,8 @@ function shareLinks(temp, item10) {
         }
         nameTextFormat = encodeURIComponent(nameTextFormat);
     })();
-    var text2 = "Highscore on Hiddo is [SCORE]PTS".replace("[SCORE]", item10);
-    var socialData = "[SCORE]PTS is mine new highscore on Hiddo! Try it now!".replace('[SCORE]', item10);
+    var text2 = "Highscore on Hiddo is [SCORE] points".replace("[SCORE]", item10);
+    var socialData = "[SCORE] points is mine new highscore on Hiddo! Try it now!".replace('[SCORE]', item10);
     var uiButton = '';
     if (temp == "facebook") {
         nameTextFormat = decodeURIComponent(nameTextFormat);
