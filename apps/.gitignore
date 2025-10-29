@@ -1,0 +1,49 @@
+# Dependencias
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Archivos temporales
+*.log
+*.tmp
+.DS_Store
+
+# Build outputs
+build/
+dist/
+*.apk
+*.aab
+*.ipa
+*.app
+
+# iOS
+ios/Pods/
+ios/build/
+ios/*.xcworkspace/xcuserdata/
+ios/*.xcodeproj/xcuserdata/
+ios/*.xcodeproj/project.xcworkspace/xcuserdata/
+ios/DerivedData/
+
+# Android
+android/.gradle/
+android/app/build/
+android/build/
+android/.idea/
+android/local.properties
+*.keystore
+!debug.keystore
+
+# Configuración local
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Backups del script de sincronización
+/tmp/*.backup

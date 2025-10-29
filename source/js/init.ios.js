@@ -864,7 +864,6 @@ function buildGameButton() {
     buttonContinue.addEventListener('click', function(event) {
         playSound("soundButton");
 
-        // Acción que se debe ejecutar cuando el anuncio haya terminado
         var doContinue = function() {
             if (typeof initSocket == "function" && multiplayerSettings.enable && socketData.online && multiplayerSettings.rejoinRoom) {
                 goPage("room");
@@ -875,21 +874,16 @@ function buildGameButton() {
             }
         };
 
-        // Si estamos embebidos en una app nativa con WebView, pedir mostrar intersticial
         if (window.ReactNativeWebView && typeof window.ReactNativeWebView.postMessage === 'function') {
-            // Registrar callback que la app nativa llamará cuando el anuncio termine o falle
             window.__resumeAfterAd = function(result) {
                 try {
-                    // result may contain { shown: true/false }
                     doContinue();
                 } finally {
-                    // limpiar referencia
                     window.__resumeAfterAd = null;
                 }
             };
             window.ReactNativeWebView.postMessage(JSON.stringify({ type: 'SHOW_INTERSTITIAL', reason: 'buttonContinue' }));
         } else {
-            // Fallback web: continuar inmediatamente
             doContinue();
         }
     });
@@ -2175,7 +2169,7 @@ function shareLinks(temp, item10) {
             'event_label': temp
         });
     }
-    // Determinar la URL de compartición según la plataforma
+    // Selección automática de la URL de compartición (Play Store para Android, App Store para iOS, fallback web)
     (function(){
         function detectPlatform() {
             if (typeof window.__HIDDO_PLATFORM !== 'undefined') return window.__HIDDO_PLATFORM;

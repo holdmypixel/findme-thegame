@@ -48,7 +48,31 @@
     <script src="js/vendor/mobile-detect.js"></script>
     <script src="js/vendor/createjs.min.js"></script>
     <script src="js/vendor/TweenMax.min.js"></script>
-    <script src="js/init.js"></script>
+    <script>
+        (function(){
+            // Detect platform from query string or user agent
+            const params = new URLSearchParams(location.search);
+            let platform = params.get('platform');
+            if (!platform) {
+                if (/Android/i.test(navigator.userAgent)) platform = 'android';
+                else if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) platform = 'ios';
+                else platform = 'web';
+            }
+
+            function load(src){
+                const s = document.createElement('script');
+                s.src = src;
+                s.defer = true;
+                document.head.appendChild(s);
+            }
+
+            if (platform === 'ios' || platform === 'android') {
+                load('js/init.' + platform + '.js');
+            } else {
+                load('js/init.js');
+            }
+        })();
+    </script>
 </body>
 
 </html>
